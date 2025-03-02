@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Vườn Cây Cảnh Lê Trường Hải</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -19,10 +19,59 @@
             color: #333;
         }
 
-        /* Header Parallax */
+        /* Mobile-first Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+        }
+
+        .nav-toggle {
+            display: block;
+            padding: 20px;
+            color: white;
+            font-size: 1.5rem;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+        }
+
+        .nav-links.active {
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 15px 0;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            background: #28a745;
+        }
+
+        /* Header Optimization */
         .header {
             height: 100vh;
-            background: url('https://i.pinimg.com/736x/21/50/91/2150912c00df5a676d59ef2005c02a3c.jpg') center/cover fixed;
+            background: url('https://i.pinimg.com/736x/21/50/91/2150912c00df5a676d59ef2005c02a3c.jpg') center/cover;
+            background-attachment: scroll;
             position: relative;
             display: flex;
             justify-content: center;
@@ -32,128 +81,65 @@
         }
 
         .header-content {
-            background: rgba(0, 0, 0, 0.5);
-            padding: 40px;
-            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
             animation: float 6s ease-in-out infinite;
         }
 
         .header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            margin-bottom: 15px;
+            font-size: 2rem;
+            margin-bottom: 10px;
         }
 
         .header p {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-        }
-
-        .btn {
-            padding: 15px 40px;
-            background: #28a745;
-            color: white;
-            border-radius: 30px;
-            transition: transform 0.3s ease;
-        }
-
-        .btn:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            justify-content: flex-end;
-            padding: 20px;
-        }
-
-        .nav-links li {
-            margin-left: 30px;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #28a745;
-        }
-
-        /* About Section */
-        .about {
-            padding: 80px 20px;
-            background: #f8f9fa;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .about-text h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: 1rem;
             margin-bottom: 20px;
         }
 
-        .about-text p {
-            font-size: 1.1rem;
-            line-height: 1.8;
+        .btn {
+            padding: 12px 30px;
+            background: #28a745;
+            color: white;
+            border-radius: 25px;
+            font-size: 0.9rem;
         }
 
-        .address {
-            background: #e9ecef;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
+        /* Mobile-friendly Sections */
+        .section {
+            padding: 60px 20px;
         }
 
-        /* Gallery Section */
-        .gallery {
-            padding: 80px 20px;
-            background: #fff;
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+            grid-template-columns: 1fr;
+            gap: 15px;
         }
 
         .gallery-item {
             position: relative;
-            overflow: hidden;
             border-radius: 10px;
+            overflow: hidden;
         }
 
         .gallery-item img {
             width: 100%;
-            height: 400px;
+            height: 250px;
             object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
+            transition: transform 0.3s ease;
         }
 
         .overlay-text {
@@ -161,9 +147,9 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.8);
             color: white;
-            padding: 20px;
+            padding: 10px;
             transform: translateY(100%);
             transition: transform 0.3s ease;
         }
@@ -172,25 +158,16 @@
             transform: translateY(0);
         }
 
-        /* Contact Section */
         .contact {
-            padding: 80px 20px;
             background: #28a745;
-            color: white;
-            text-align: center;
-        }
-
-        .contact h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 30px;
+            padding: 40px 20px;
         }
 
         .social-icons {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
+            gap: 25px;
+            flex-wrap: wrap;
         }
 
         .social-icons a {
@@ -199,36 +176,52 @@
             transition: transform 0.3s ease;
         }
 
-        .social-icons a:hover {
-            transform: scale(1.2);
+        /* Responsive Typography */
+        h2 {
+            font-size: 1.6rem;
         }
 
-        /* Footer */
-        .footer {
-            padding: 20px;
-            background: #343a40;
-            color: white;
-            text-align: center;
+        p {
+            font-size: 0.9rem;
+            line-height: 1.6;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.5rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
+        /* Desktop Enhancements */
+        @media (min-width: 768px) {
+            .nav-toggle {
+                display: none;
             }
 
             .nav-links {
-                flex-direction: column;
-                align-items: center;
-                padding: 10px;
+                display: flex !important;
+                flex-direction: row;
+                justify-content: flex-end;
+                position: static;
+                background: none;
             }
 
             .nav-links li {
-                margin: 10px 0;
+                margin: 0 15px;
+            }
+
+            .header {
+                background-attachment: fixed;
+            }
+
+            .header h1 {
+                font-size: 3rem;
+            }
+
+            .header p {
+                font-size: 1.3rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+
+            .gallery-item img {
+                height: 400px;
             }
         }
 
@@ -238,22 +231,16 @@
                 transform: translateY(0);
             }
             50% {
-                transform: translateY(-20px);
+                transform: translateY(-15px);
             }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transition: opacity 1s ease;
-        }
-
-        .fade-in.active {
-            opacity: 1;
         }
     </style>
 </head>
 <body>
     <nav class="navbar">
+        <button class="nav-toggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
         <ul class="nav-links">
             <li><a href="#home">Trang Chủ</a></li>
             <li><a href="#about">Giới Thiệu</a></li>
@@ -270,20 +257,18 @@
         </div>
     </header>
 
-    <section id="about" class="about">
+    <section id="about" class="section">
+        <h2 class="section-title">Giới Thiệu</h2>
         <div class="about-content">
-            <div class="about-text">
-                <h2>Chào Mừng Đến Với Vườn Cây Của Chúng Tôi</h2>
-                <p>Địa chỉ: 41 Trần Trọng Khiêm, Khuê Mỹ, Ngũ Hành Sơn, Đà Nẵng</p>
-                <div class="address">
-                    <p><i class="fas fa-map-marker-alt"></i> Khu vườn rộng 5000m² với hơn 300 loài cây cảnh, cây công trình</p>
-                    <p><i class="fas fa-phone"></i> Hotline: 0905 123 456</p>
-                </div>
+            <p>Địa chỉ: 41 Trần Trọng Khiêm, Khuê Mỹ, Ngũ Hành Sơn, Đà Nẵng</p>
+            <div class="address">
+                <p><i class="fas fa-map-marker-alt"></i> Khu vườn rộng 500m² với hơn 200 loài cây cảnh</p>
+                <p><i class="fas fa-phone"></i> Hotline: 0935 434 834 - 0905 870 980</p>
             </div>
         </div>
     </section>
 
-    <section id="gallery" class="gallery">5
+   <section id="gallery" class="gallery">5
         <h2 class="section-title">Bộ Sưu Tập Cây Cảnh</h2>
         <div class="gallery-grid">
             <div class="gallery-item">
@@ -302,7 +287,7 @@
     </section>
 
     <section id="contact" class="contact">
-        <h2>Liên Hệ Với Chúng Tôi</h2>
+        <h2 class="section-title">Liên Hệ</h2>
         <div class="social-icons">
             <a href="https://www.facebook.com/profile.php?id=100063488619503" target="_blank"><i class="fab fa-facebook"></i></a>
             <a href="tel:0905123456"><i class="fas fa-phone"></i></a>
@@ -310,44 +295,31 @@
         </div>
     </section>
 
-    <footer class="footer">
-        <p>&copy; 2024 Vườn Cây Cảnh Lê Trường Hải. All rights reserved.</p>
-    </footer>
-
     <script>
-        // Active link highlight
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-links a');
+        // Mobile menu toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
 
-        window.addEventListener('scroll', () => {
-            let current = '';
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
 
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop - sectionHeight / 3) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) {
-                    link.classList.add('active');
-                }
+        // Close menu when link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
             });
         });
 
-        // Fade-in animation
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
-
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
